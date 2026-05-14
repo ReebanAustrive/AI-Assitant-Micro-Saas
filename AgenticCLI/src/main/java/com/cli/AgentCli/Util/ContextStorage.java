@@ -3,6 +3,8 @@ package com.cli.AgentCli.Util;
 import com.cli.AgentCli.Model.ContextBundle;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -11,7 +13,9 @@ import java.nio.file.Path;
 @Component
 public class ContextStorage {
     private final Path filePath = Path.of(System.getProperty("user.home"), ".ccms", "ccms-context.json");
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = JsonMapper.builder()
+            .enable(SerializationFeature.INDENT_OUTPUT)
+            .build();
     public ContextStorage(){
         try{
             Files.createDirectories(filePath.getParent());

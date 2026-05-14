@@ -1,18 +1,22 @@
 package com.cli.AgentCli.command;
 
 
+import com.cli.AgentCli.Service.ContextService;
 import org.springframework.shell.core.command.annotation.Command;
 import org.springframework.shell.core.command.annotation.Option;
 import org.springframework.stereotype.Component;
 
 @Component
 public class InitCommands {
-    @Command(name = {"ccms", "init", "repo"}, description = "Initialize the context window")
-    public void initRepo(@Option(longName = "repo", description = "Gets the repo URL")String repoURL) {
+    private ContextService contextService;
 
+    public InitCommands(ContextService contextService) {
+        this.contextService = contextService;
     }
-    @Command(name = {"ccms", "inti","arch"}, description = "Intitialize and redirect to the architecture path")
-    public void intiArch(@Option(longName = "arch", description = "Path to architecture doc")String archPath){
-
+    @Command(name = {"ccms", "init"}, description = "Initialize the context window")
+    public String initRepo(@Option(longName = "repo", required = true, description = "Gets the repo URL")String repoURL,
+                         @Option(longName = "arch", required = true, description = "Path for architecture document") String archPath,
+                         @Option(longName = "rule", required = false, description = "Sets the initial rules into context window") String rulePath) {
+            return contextService.initContext(repoURL, archPath, rulePath);
     }
 }

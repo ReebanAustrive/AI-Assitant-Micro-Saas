@@ -1,1 +1,13 @@
 1778577367995:help
+1778754880818:ccms help
+1778754998205:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch ./docs/WORKFLOW.md
+1778755971958:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch C:\\Users\\REEBAN AUSTRIVE\\OneDrive\\??\\bruno\\fracktal-ops
+1778756214534:ccms init
+1778756257903:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch C:\\Users\\REEBAN AUSTRIVE\\OneDrive\\??\\bruno\\fracktal-ops
+1778756325319:shell:> ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:\\Users\\REEBAN AUSTRIVE\\OneDrive\\fracktal-ops\\docs\\WORKFLOW.md"
+1778756441120:ccms init  --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:\\Users\\REEBAN AUSTRIVE\\OneDrive\\fracktal-ops\\docs\\WORKFLOW.md"
+1778756505245:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:/Users/REEBAN AUSTRIVE/OneDrive/fracktal-ops/docs/WORKFLOW.md"
+1778756693556:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:\\Users\\REEBAN AUSTRIVE\\OneDrive\\Desktop\\fracktal-ops\\fracktal-ops\\docs\\WORKFLOW.md"
+1778756963731:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:/Users/REEBAN AUSTRIVE/Desktop/fracktal-ops/docs/WORKFLOW.md"
+1778757087244:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:/Users/REEBAN AUSTRIVE/Desktop/fracktal-ops/fracktal-ops/docs/WORKFLOW.md"
+1778757183833:ccms init --repo https://github.com/FracktalWorks/fracktal-ops.git --arch "C:/Users/REEBAN AUSTRIVE/OneDrive/Desktop/fracktal-ops/fracktal-ops/docs/WORKFLOW.md"

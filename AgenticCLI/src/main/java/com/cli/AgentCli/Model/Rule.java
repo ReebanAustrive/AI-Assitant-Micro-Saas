@@ -1,20 +1,18 @@
 package com.cli.AgentCli.Model;
 
+import com.cli.AgentCli.Enums.Severity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
-@Data
 
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Rule {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String title;
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "severity_level")
-    private String severity;
+    private Severity severity;
 }
