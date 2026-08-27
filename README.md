@@ -1,4 +1,4 @@
-# CCMS AI CLI
+# Igot AI Code Review CLI
 
 A context-aware AI-powered code review CLI built with Spring Shell 4, Spring Boot 4, and Claude AI. Feed it your project's architecture, rules, and codebase once — then get intelligent PR reviews that stay strictly within your project's context.
 
@@ -6,7 +6,7 @@ A context-aware AI-powered code review CLI built with Spring Shell 4, Spring Boo
 
 ## What It Does
 
-CCMS AI CLI fetches any GitHub PR, analyzes the diff against your project's stored context, and returns structured warnings, suggestions, and a production risk score — all from your terminal.
+Igot AI Code Review CLI fetches any GitHub PR, analyzes the diff against your project's stored context, and returns structured warnings, suggestions, and a production risk score — all from your terminal.
 
 ```
 shell:> ccms init --repo https://github.com/org/ccms --arch ./docs/arch.md --rules ./ccms-rules.json
@@ -223,7 +223,7 @@ Create a `ccms-rules.json` file with your project-specific rules:
 
 ## How Context Engineering Works
 
-CCMS AI CLI uses a **bounded context** approach — the AI is strictly constrained to your project's knowledge:
+Igot AI Code Review CLI uses a **bounded context** approach — the AI is strictly constrained to your project's knowledge:
 
 1. `ccms init` builds a context bundle from your architecture doc, rules, and repo
 2. The bundle is stored locally at `~/.ccms/ccms-context.json`
