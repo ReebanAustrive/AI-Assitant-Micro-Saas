@@ -42,3 +42,25 @@
 1779273512725:ccms init --repo https://github.com/ReebanAustrive/AI-Assitant-Micro-Saas.git --arch "E:/YT-CLI/README.md"
 1779273520998:ccms review --pr 1
 1779273570579:ccms review --pr 2
+1787842681776:ccms help
+1787842867829:ccms context show
+1787843115384:ccmccms init -repo "https://github.com/FracktalWorks/fracktal-ops" -arch "/var/home/reeban/Documents/Projects.Com/fracktal-ops/docs/WORKFLOW.md"
+1787843152227:ccms init -repo "https://github.com/FracktalWorks/fracktal-ops" -arch "/var/home/reeban/Documents/Projects.Com/fracktal-ops/docs/WORKFLOW.md"
+1787843205716:ccms inti --repo https://github.com/FracktalWorks/fracktal-ops --arch /var/home/reeban/Documents/Projects.Com/fracktal-ops/docs/WORKFLOW.md
+1787843265396:ccms init --repo https://github.com/FracktalWorks/fracktal-ops --arch https://github.com/FracktalWorks/fracktal-ops/blob/main/docs/WORKFLOW.md
+1787843287291:ccms help
+1787843317829:ccms review --pr 146
+1787979731813:ccms help
+1787979860552:ccms init --repo https://github.com/FracktalWorks/fracktal-ops --arch https://github.com/FracktalWorks/fracktal-ops/blob/main/docs/WORKFLOW.md
+1787979895998:ccms review --pr 146
+1787980525895:ccms init --repo https://github.com/santhosh-005/CCMS --arch https://github.com/santhosh-005/CCMS/blob/main/README.md
+1787980571992:ccms review --pr 221
+1787981008650:ccms init --repo https://github.com/FracktalWorks/fracktal-ops --arch /run/media/reeban/New Volume/CCMS/CCMS
+1787981277574:ccms init --repo https://github.com/FracktalWorks/fracktal-ops --arch /var/home/reeban/Documents
+1787981324351:ccms init --repo https://github.com/FracktalWorks/fracktal-ops --arch /var/home/reeban/Documents/README.md
+1787981343992:ccms review --pr 567
+1787981359905:ccms review --pr 221
+1787981402885:ccms review --pr 146
+1787981488691:ccms init --repo https://github.com/santhosh-005/CCMS --arch /var/home/reeban/Documents/README.md
+1787981502032:ccms review --pr 221
+1787981543481:ccms review --pr 222

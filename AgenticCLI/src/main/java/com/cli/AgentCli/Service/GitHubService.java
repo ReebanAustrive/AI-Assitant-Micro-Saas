@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@SuppressWarnings("unchecked")
 public class GitHubService {
     @Autowired
     private ContextStorage contextStorage;
