@@ -1,0 +1,6 @@
+1787982980283:ccms init --repo https://github.com/santhosh-005/CCMS --arch /var/home/reeban/Documents/README.md
+1787982993409:ccms help
+1787983006330:ccms context show
+1787983130102:ccms init --repo https://github.com/santhosh-005/CCMS --arch /var/home/reeban/Documents/README.md
+1787983141734:ccms context show
+1787983159725:ccms review --pr 221
