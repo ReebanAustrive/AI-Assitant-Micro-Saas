@@ -3,6 +3,9 @@ name: Build and Release Native CLI
 on:
   release:
     types: [created]
+permissions:
+  contents: write
+
 
 jobs:
   build:
