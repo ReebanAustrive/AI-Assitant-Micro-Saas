@@ -25,19 +25,23 @@ jobs:
 
       - name: Make Gradle Wrapper Executable (Linux/Mac)
         if: matrix.os != 'windows-latest'
+        working-directory: ./agenticcli
         run: chmod +x gradlew
 
       - name: Compile Native Image
+        working-directory: ./agenticcli
         run: ./gradlew nativeCompile
 
       - name: Rename and Zip Binary (Linux/Mac)
         if: matrix.os != 'windows-latest'
+        working-directory: ./agenticcli
         run: |
           mv build/native/nativeCompile/youtubeCLI ccms-${{ matrix.os }}
           zip ccms-${{ matrix.os }}.zip ccms-${{ matrix.os }}
 
       - name: Rename and Zip Binary (Windows)
         if: matrix.os == 'windows-latest'
+        working-directory: ./agenticcli
         run: |
           Rename-Item -Path "build\native\nativeCompile\youtubeCLI.exe" -NewName "ccms-windows.exe"
           Compress-Archive -Path "ccms-windows.exe" -DestinationPath "ccms-windows.zip"
@@ -46,4 +50,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ccms-*.zip
+            agenticcli/ccms-*.zip
