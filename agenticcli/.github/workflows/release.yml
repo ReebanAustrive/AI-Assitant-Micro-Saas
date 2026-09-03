@@ -1,0 +1,49 @@
+name: Build and Release Native CLI
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'graalvm'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Make Gradle Wrapper Executable (Linux/Mac)
+        if: matrix.os != 'windows-latest'
+        run: chmod +x gradlew
+
+      - name: Compile Native Image
+        run: ./gradlew nativeCompile
+
+      - name: Rename and Zip Binary (Linux/Mac)
+        if: matrix.os != 'windows-latest'
+        run: |
+          mv build/native/nativeCompile/youtubeCLI ccms-${{ matrix.os }}
+          zip ccms-${{ matrix.os }}.zip ccms-${{ matrix.os }}
+
+      - name: Rename and Zip Binary (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          Rename-Item -Path "build\native\nativeCompile\youtubeCLI.exe" -NewName "ccms-windows.exe"
+          Compress-Archive -Path "ccms-windows.exe" -DestinationPath "ccms-windows.zip"
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ccms-*.zip

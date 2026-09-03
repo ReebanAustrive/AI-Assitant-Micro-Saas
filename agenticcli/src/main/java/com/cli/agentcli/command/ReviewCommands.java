@@ -1,0 +1,42 @@
+package com.cli.agentcli.command;
+
+
+import com.cli.agentcli.Model.PullRequest;
+import com.cli.agentcli.Model.ReviewResult;
+import com.cli.agentcli.Service.GeminiService;
+import com.cli.agentcli.Service.GitHubService;
+import com.cli.agentcli.Util.RiskScoreCalculator;
+import org.springframework.shell.core.command.annotation.Command;
+import org.springframework.shell.core.command.annotation.Option;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ReviewCommands {
+    private GitHubService gitHubService;
+    private GeminiService geminiService;
+    private RiskScoreCalculator  riskScoreCalculator;
+    public ReviewCommands(GitHubService gitHubService, GeminiService geminiService,  RiskScoreCalculator riskScoreCalculator) {
+        this.gitHubService = gitHubService;
+        this.geminiService = geminiService;
+        this.riskScoreCalculator = riskScoreCalculator;
+    }
+    @Command(name = {"ccms", "review"}, description = "Review the defined PR", group = "Review")
+    public String review(@Option(longName = "pr",required = true, description = "Compare the PR differences")Integer pr){
+        PullRequest pullRequest = gitHubService.fetchPr(pr);
+        if (pullRequest == null){
+            return "Requested PR does not exist. Check PR number and github token";
+        }
+
+        ReviewResult result = geminiService.analyzePr(pullRequest);
+        if (result == null){
+            return "There was an error while running the command. Try again";
+        }
+        double riskScore = riskScoreCalculator.calculateRiskScore(result);
+        result.setRiskScore(riskScore);
+
+        return "\nCRITICAL:\n" + result.getCritical() +
+                "\n\nWARNINGS:\n" + result.getWarnings() +
+                "\n\nSUGGESTIONS:\n" + result.getSuggestions() +
+                "\n\nRisk Score: " + result.getRiskScore() + "/10";
+    }
+}
