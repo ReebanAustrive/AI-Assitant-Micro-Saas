@@ -20,7 +20,7 @@ public class ReviewCommands {
         this.geminiService = geminiService;
         this.riskScoreCalculator = riskScoreCalculator;
     }
-    @Command(name = {"ccms", "review"}, description = "Review the defined PR", group = "Review")
+    @Command(name = {"review"}, description = "Review the defined PR", group = "Review")
     public String review(@Option(longName = "pr",required = true, description = "Compare the PR differences")Integer pr){
         PullRequest pullRequest = gitHubService.fetchPr(pr);
         if (pullRequest == null){
