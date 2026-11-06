@@ -24,7 +24,6 @@ public class ContextService {
         List<Rule> ruleList = new ArrayList<>();
        try{
            String archString = fileUtil.readFile(archPath);
-           System.out.println("DEBUG archPath: " + archPath);
            if (rulesPath != null && !rulesPath.isEmpty()) {
                String rulesString = fileUtil.readFile(rulesPath);
                ruleList = mapper.readValue(rulesString, new TypeReference<List<Rule>>() {});
